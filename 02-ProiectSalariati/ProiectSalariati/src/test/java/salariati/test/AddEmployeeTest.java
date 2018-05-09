@@ -14,8 +14,6 @@ import salariati.validator.EmployeeValidator;
 import salariati.controller.EmployeeController;
 import salariati.enumeration.DidacticFunction;
 
-import java.util.List;
-
 public class AddEmployeeTest {
 
 	private UIController uiController;
@@ -31,60 +29,31 @@ public class AddEmployeeTest {
 	@Test
 	public void testAddNewEmployee_BVA_nonvalid() {
 		String result;
-		//test salary
-		result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "9");
-		assertEquals("Error to add: Vasile;1960405125786;ASISTENT;9", result);
-        //test name length
-        result = uiController.addEmployee("Va", "1960405125786", DidacticFunction.ASISTENT, "100");
-        assertEquals("Error to add: Va;1960405125786;ASISTENT;100", result);
-        //test cnp length
-        result = uiController.addEmployee("Vasile","196040512578",DidacticFunction.ASISTENT,"100");
-        assertEquals("Error to add: Vasile;196040512578;ASISTENT;100",result);
-        //test cnp length
-        result = uiController.addEmployee("Vasile","19604051257890",DidacticFunction.ASISTENT,"100");
-        assertEquals("Error to add: Vasile;19604051257890;ASISTENT;100",result);
-
-    }
-
+		result = uiController.addEmployee("LastName", "1960514135456", DidacticFunction.ASISTENT, "9");
+		assertEquals("Error to add: LastName;1960514135456;ASISTENT;9", result);
+	}
 
 	@Test
 	public void testAddNewEmployee_BVA_valid(){
 		String result;
-		//test salary
-		result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "10");
-		assertEquals("Added: Vasile;1960405125786;ASISTENT;10", result);
-		//test cnp length
-        result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "1000");
-        assertEquals("Added: Vasile;1960405125786;ASISTENT;1000", result);
-        //test name lenth
-        result = uiController.addEmployee("Vas", "1960405125786", DidacticFunction.ASISTENT, "1000");
-        assertEquals("Added: Vas;1960405125786;ASISTENT;1000", result);
-    }
+		result = uiController.addEmployee("LastName", "1960514135456", DidacticFunction.ASISTENT, "10");
+		assertEquals("Added: LastName;1960514135456;ASISTENT;10", result);
+	}
 
 
 	@Test
 	public void testAddNewEmployee_ECP_nonvalid() {
 		String result;
-		//test salary
-		result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "-100");
-		assertEquals("Error to add: Vasile;1960405125786;ASISTENT;-100", result);
-		//test Name
-        result = uiController.addEmployee("vasile", "1960405125786", DidacticFunction.ASISTENT, "100");
-        assertEquals("Error to add: vasile;1960405125786;ASISTENT;100", result);
-        //test Name
-        result = uiController.addEmployee("Vasil3", "1960405125786", DidacticFunction.ASISTENT, "100");
-        assertEquals("Error to add: Vasil3;1960405125786;ASISTENT;100", result);
-    }
+		result = uiController.addEmployee("LastName", "1960514135456", DidacticFunction.ASISTENT, "-3000");
+		assertEquals("Error to add: LastName;1960514135456;ASISTENT;-3000", result);
+	}
 
 	@Test
 	public void testAddNewEmployee_ECP_valid(){
 		String result;
-		//test salary
-		result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "100");
-		assertEquals("Added: Vasile;1960405125786;ASISTENT;100", result);
-		//test Name
-        result = uiController.addEmployee("Vasile", "1960405125786", DidacticFunction.ASISTENT, "100");
-        assertEquals("Added: Vasile;1960405125786;ASISTENT;100", result);
+		result = uiController.addEmployee("LastName", "1960514135456", DidacticFunction.ASISTENT, "3000");
+		assertEquals("Added: LastName;1960514135456;ASISTENT;3000", result);
 	}
 
-    }
+
+}
